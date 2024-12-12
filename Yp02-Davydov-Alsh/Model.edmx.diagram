@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4b4c56cff20421b83b3de37570f136b" Name="Diagram1">
+        <EntityTypeShape EntityType="BuissnesManagementModel.Material_type" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BuissnesManagementModel.Partner_products" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BuissnesManagementModel.Partner_type" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BuissnesManagementModel.Partners" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BuissnesManagementModel.Product_type" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BuissnesManagementModel.Products" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="BuissnesManagementModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="BuissnesManagementModel.FK_Products_Material_type" ManuallyRouted="false" />
+        <AssociationConnector Association="BuissnesManagementModel.FK_Partner_products_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="BuissnesManagementModel.FK_Partner_products_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="BuissnesManagementModel.FK_Partners_Partner_type" ManuallyRouted="false" />
+        <AssociationConnector Association="BuissnesManagementModel.FK_Products_Product_type" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
