@@ -38,15 +38,14 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
-                            <TextBlock VerticalAlignment="Center" Width="250"
+                        <TextBlock VerticalAlignment="Center" Width="250" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
             TextWrapping="Wrap" Text="{Binding Partner_type.Name_Type}" FontSize="18" FontWeight="Bold"/>
 
-                        <TextBlock VerticalAlignment="Center" Width="250"
+                        <TextBlock VerticalAlignment="Center" Width="250" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1"
             FontSize="18" Text="{Binding Name}"/>
-                        </StackPanel>
-         
+
                         <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="2" Grid.Column="0"
             HorizontalAlignment="Center" FontSize="18" Text="{Binding Director_name}"/>
 
@@ -55,7 +54,7 @@
 
                         <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="4" Grid.Column="0"
             HorizontalAlignment="Center" FontSize="18" Text="{Binding Rating}"/>
-                        <TextBlock x:Name="discont" VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="2" Grid.Column="1"
+                        <TextBlock x:Name="discont" VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="2" Grid.Column="2"
             HorizontalAlignment="Center" FontSize="18" Text="10%"/>
                     </Grid>
                 </DataTemplate>
