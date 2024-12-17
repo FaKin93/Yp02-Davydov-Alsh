@@ -42,5 +42,10 @@ namespace Yp02_Davydov_Alsh
             //загружаем всех пользователей в список
             var currentUsers = Entities.GetContext().Partners.ToList();
         }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
