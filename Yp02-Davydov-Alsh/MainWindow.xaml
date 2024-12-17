@@ -21,7 +21,7 @@
             <Image Grid.Column="2" HorizontalAlignment="Right" Source="/Мастер пол.png" Stretch="Fill"/>
             <Button x:Name="back" Grid.Column="0" Grid.Row="0" Content="Назад" Height="40" HorizontalAlignment="Stretch" Click="back_Click"/>
         </Grid>
-        <ListView Name="ListPartners" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+        <ListView Name="ListPartners" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListPartners_SelectionChanged">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
@@ -42,22 +42,22 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock VerticalAlignment="Center" Width="250" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0"
-            TextWrapping="Wrap" Text="{Binding Partner_type.Name_Type}" FontSize="18" FontWeight="Bold"/>
+                        <TextBlock VerticalAlignment="Center" Width="250" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"
+            TextWrapping="Wrap" Text="{Binding Header}" FontSize="18" FontWeight="Bold"/>
 
-                        <TextBlock VerticalAlignment="Center" Width="250" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="1"
-            FontSize="18" Text="{Binding Name}"/>
+                       
 
                         <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="2" Grid.Column="0"
             HorizontalAlignment="Center" FontSize="18" Text="{Binding Director_name}"/>
 
                         <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="3" Grid.Column="0"
-            HorizontalAlignment="Center" FontSize="18" Text="{Binding Phone}"/>
+            HorizontalAlignment="Center" FontSize="18" Text="{Binding Number}"/>
 
                         <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="4" Grid.Column="0"
-            HorizontalAlignment="Center" FontSize="18" Text="{Binding Rating}"/>
+HorizontalAlignment="Center" FontSize="18" Text="{Binding Ratin}"/>
+                        
                         <TextBlock x:Name="discont" VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="2" Grid.Column="2"
-            HorizontalAlignment="Center" FontSize="18" Text="10%"/>
+            HorizontalAlignment="Center" FontSize="18" Text="{Binding Discount}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

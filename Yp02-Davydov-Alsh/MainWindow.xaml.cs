@@ -30,6 +30,7 @@ namespace Yp02_Davydov_Alsh
             var currentPartners = context.Partners.ToList();
             ListPartners.ItemsSource = currentPartners;
             UpdatePartners();
+
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -44,6 +45,11 @@ namespace Yp02_Davydov_Alsh
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListPartners_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
