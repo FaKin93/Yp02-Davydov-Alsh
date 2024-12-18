@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Yp02_Davydov_Alsh.Pages;
 
 namespace Yp02_Davydov_Alsh
 {
@@ -26,11 +27,6 @@ namespace Yp02_Davydov_Alsh
         public MainWindow()
         {
             InitializeComponent();
-            var context = Entities.GetContext();
-            var currentPartners = context.Partners.ToList();
-            ListPartners.ItemsSource = currentPartners;
-            UpdatePartners();
-
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -38,20 +34,28 @@ namespace Yp02_Davydov_Alsh
             if (result == MessageBoxResult.No)
                 e.Cancel = true;
         }
-        private void UpdatePartners()
+
+        private void Frame_Navigated(object sender, NavigationEventArgs e)
         {
-            //загружаем всех пользователей в список
-            var currentUsers = Entities.GetContext().Partners.ToList();
+            if (!(e.Content is Page page)) return;
+            this.Title = $"MasterPol - {page.Title}";
+
+            if (page is Pages.PartnersPage)
+            {
+                back.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                back.Visibility = Visibility.Visible;
+            }
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
+            if (MainFrame.CanGoBack) MainFrame.GoBack();
 
         }
 
-        private void ListPartners_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
     }
 }

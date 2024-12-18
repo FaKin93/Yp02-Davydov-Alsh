@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yp02_Davydov_Alsh"
         mc:Ignorable="d"
-        Title="MasterPol" Height="450" Width="800" Closing="Window_Closing">
+        Title="MasterPol" Height="600" Width="1200" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -14,54 +14,17 @@
         <Grid HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="620"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="730"/>
                 <ColumnDefinition Width="auto"/>
 
             </Grid.ColumnDefinitions>
-            <Image Grid.Column="2" HorizontalAlignment="Right" Source="/Мастер пол.png" Stretch="Fill"/>
-            <Button x:Name="back" Grid.Column="0" Grid.Row="0" Content="Назад" Height="40" HorizontalAlignment="Stretch" Click="back_Click"/>
+            <Image Grid.Column="4" HorizontalAlignment="Right" Source="/Мастер пол.png" Stretch="Fill"/>
+            <Button x:Name="back" Grid.Column="0" Grid.Row="0" Content="Назад" ToolTip="Вернуться на предыдущую страницу" Height="40" HorizontalAlignment="Stretch" Click="back_Click"/>
+            
         </Grid>
-        <ListView Name="ListPartners" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListPartners_SelectionChanged">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock VerticalAlignment="Center" Width="250" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0"
-            TextWrapping="Wrap" Text="{Binding Header}" FontSize="18" FontWeight="Bold"/>
-
-                       
-
-                        <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="2" Grid.Column="0"
-            HorizontalAlignment="Center" FontSize="18" Text="{Binding Director_name}"/>
-
-                        <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="3" Grid.Column="0"
-            HorizontalAlignment="Center" FontSize="18" Text="{Binding Number}"/>
-
-                        <TextBlock VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="4" Grid.Column="0"
-HorizontalAlignment="Center" FontSize="18" Text="{Binding Ratin}"/>
-                        
-                        <TextBlock x:Name="discont" VerticalAlignment="Center" TextAlignment="Left" Width="250" Grid.Row="2" Grid.Column="2"
-            HorizontalAlignment="Center" FontSize="18" Text="{Binding Discount}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Frame x:Name="MainFrame" Content="" Source="Pages/PartnersPage.xaml" NavigationUIVisibility="Hidden" Grid.Row="1" Navigated="Frame_Navigated" HorizontalAlignment="Stretch"/>
 
 
     </Grid>

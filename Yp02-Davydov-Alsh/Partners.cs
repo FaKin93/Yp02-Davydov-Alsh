@@ -35,7 +35,7 @@ namespace Yp02_Davydov_Alsh
 
         public string Header => $"{Partner_type.Name_Type} | {Name}";
         public string Ratin => $"Рэйтинг: {Rating}";
-        public string Number => $"+7{Phone}";
+        public string Number => $"+7 {Phone}";
         public string Discount => $"{CalculateDiscount(Partner_products.Sum(s => s.Num_of_products))}%";
 
         private int CalculateDiscount(long? totalSum)
