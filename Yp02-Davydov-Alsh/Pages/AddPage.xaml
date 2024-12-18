@@ -44,11 +44,11 @@
 
         <TextBox ToolTip="Введите Адрес" x:Name="TextBoxAdress" Text="{Binding Adress}" Grid.Row="3" Grid.Column="1"/>
         
-        <TextBox ToolTip="Введите Фамилию" x:Name="TextBoxSecond" Text="" Grid.Row="4" Grid.Column="1"/>
+        <TextBox ToolTip="Введите Фамилию" x:Name="TextBoxSecond" Text="{Binding Director_name}" Grid.Row="4" Grid.Column="1"/>
 
-        <TextBox ToolTip="Введите Имя" x:Name="TextBoxFirst" Text="" Grid.Row="5" Grid.Column="1"/>
+        <TextBox ToolTip="Введите Имя" x:Name="TextBoxFirst" Text="{Binding Director_middle_name}" Grid.Row="5" Grid.Column="1"/>
 
-        <TextBox ToolTip="Введите Отчество" x:Name="TextBoxThird" Text="" Grid.Row="6" Grid.Column="1"/>
+        <TextBox ToolTip="Введите Отчество" x:Name="TextBoxThird" Text="{Binding Director_last_name}" Grid.Row="6" Grid.Column="1"/>
 
         <TextBox ToolTip="Введите контактный телефон" x:Name="TextBoxPhone" Text="{Binding Phone}" Grid.Row="7" Grid.Column="1"/>
 

@@ -37,6 +37,7 @@ namespace Yp02_Davydov_Alsh.Pages
             if (currentPartners != null)
             {
                 _currentPartners = currentPartners;
+                TypeBox.SelectedIndex = currentPartners.Type;
             }
             DataContext = _currentPartners;
             var context = Entities.GetContext();
