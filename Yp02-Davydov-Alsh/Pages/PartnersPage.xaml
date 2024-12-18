@@ -13,7 +13,7 @@
             <RowDefinition Height="378"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <ListView Name="ListPartners" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}">
+        <ListView  Name="ListPartners" Grid.Row="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ListPartners_SelectionChanged" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"></WrapPanel>

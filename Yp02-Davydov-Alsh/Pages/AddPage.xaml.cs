@@ -41,7 +41,6 @@ namespace Yp02_Davydov_Alsh.Pages
             DataContext = _currentPartners;
             var context = Entities.GetContext();
             TypeBox.ItemsSource = context.Partner_type.Distinct().ToList();
-            TypeBox.SelectedIndex = 0;
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)

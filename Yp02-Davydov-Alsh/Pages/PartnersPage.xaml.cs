@@ -39,5 +39,16 @@ namespace Yp02_Davydov_Alsh.Pages
         {
             NavigationService.Navigate(new AddPage(null, true));
         }
+
+        private void ListPartners_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Partners partners = ListPartners.SelectedItem as Partners;
+            NavigationService.Navigate(new AddPage(partners, false));
+        }
+
+        //private void ListPartners_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
+        //    NavigationService.Navigate(new Pages.AddPage((sender as ListViewItem).DataContext as Partners, false));
+        //}
     }
 }
