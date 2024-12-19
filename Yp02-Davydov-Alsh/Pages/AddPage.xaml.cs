@@ -121,19 +121,22 @@ namespace Yp02_Davydov_Alsh.Pages
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            //Изменяем объект Partners
-            try
+            MessageBoxResult result = MessageBox.Show("Вы уверены что хотите Добавить/Сохранить эти данные?", "Подтвержение закрытия", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
             {
-                Entities.GetContext().SaveChanges();
-                MessageBox.Show("Данные успешно сохранены!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
-            NavigationService.GoBack();
+                //Изменяем объект Partners
+                try
+                {
+                    Entities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно сохранены!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+                NavigationService.GoBack();
 
-
+            }
         }
        
     }

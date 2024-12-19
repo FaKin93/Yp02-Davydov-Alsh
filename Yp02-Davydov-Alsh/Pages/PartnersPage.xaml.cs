@@ -40,11 +40,27 @@ namespace Yp02_Davydov_Alsh.Pages
             NavigationService.Navigate(new AddPage(null, true));
         }
 
-        private void ListPartners_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void Realise_Click(object sender, RoutedEventArgs e)
+        {
+
+            var selectedItem = ListPartners.SelectedItem as Partners;
+            if (selectedItem != null)
+            {
+                NavigationService.Navigate(new Product(selectedItem));
+
+            }
+            else
+            {
+                MessageBox.Show("Выберите партнера");
+            }
+
+        }
+
+        private void Redact_Click(object sender, RoutedEventArgs e)
         {
             Partners partners = ListPartners.SelectedItem as Partners;
             NavigationService?.Navigate(new AddPage(partners, false));
         }
-
     }
 }
