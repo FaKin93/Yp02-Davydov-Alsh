@@ -58,7 +58,7 @@
 
  
         <Button Name="ButtonSave" Content="Добавить" Grid.Row="9" Click="ButtonSave_Click" Grid.ColumnSpan="2" Margin="0,0,50,0" HorizontalAlignment="Right"/>
-        <Button Name="ButtonRedact" Content="Сохранить" Grid.Row="9" Click="ButtonSave_Click" Grid.ColumnSpan="2" Margin="0,0,50,0" HorizontalAlignment="Center"/>
+        <Button Name="ButtonRedact" Content="Сохранить" Grid.Row="9" Click="ButtonRedact_Click" Grid.ColumnSpan="2" Margin="0,0,50,0" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>

@@ -37,7 +37,7 @@ namespace Yp02_Davydov_Alsh.Pages
             if (currentPartners != null)
             {
                 _currentPartners = currentPartners;
-                TypeBox.SelectedIndex = currentPartners.Type;
+                TypeBox.SelectedIndex = currentPartners.Type - 1;
             }
             DataContext = _currentPartners;
             var context = Entities.GetContext();
@@ -46,43 +46,6 @@ namespace Yp02_Davydov_Alsh.Pages
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            //if (CheckFields())
-            //{
-            //    if (_currentPartners.ID_partner == 0)
-            //    {
-            //        Entities.GetContext().Partners.Add(_currentPartners);
-            //        try
-            //        {
-            //            Entities.GetContext().SaveChanges();
-            //            MessageBox.Show("Сохранение прошло успешно!");
-            //            _currentPartners = new Partners();
-            //            DataContext = _currentPartners;
-            //        }
-            //        catch (Exception ex)
-            //        {
-            //            MessageBox.Show($"Не получилось сохранить данные: {ex}");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Partners finded = Entities.GetContext().Partners.FirstOrDefault(u => u.ID_partner == _currentPartners.ID_partner);
-
-            //        if (finded != null)
-            //        {
-            //            finded = _currentPartners;
-            //            try
-            //            {
-            //                Entities.GetContext().SaveChanges();
-            //                MessageBox.Show("Сохранение прошло успешно!");
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                MessageBox.Show($"Не получилось сохранить данные: {ex}");
-            //            }
-            //        }
-            //    }
-            //}
-
             if (string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TypeBox.Text) || string.IsNullOrEmpty(RatingBox.Text) || string.IsNullOrEmpty(TextBoxAdress.Text) || string.IsNullOrEmpty(TextBoxAdress.Text) || string.IsNullOrEmpty(TextBoxSecond.Text) || string.IsNullOrEmpty(TextBoxFirst.Text) || string.IsNullOrEmpty(TextBoxThird.Text) || string.IsNullOrEmpty(TextBoxPhone.Text) || string.IsNullOrEmpty(TextBoxEmail.Text))
             {
                 MessageBox.Show("Заполните все вышеуказанные поля!");
@@ -124,45 +87,54 @@ namespace Yp02_Davydov_Alsh.Pages
                 db.Partners.Add(PartnerObject);
                 db.SaveChanges();
                 MessageBox.Show("Пользователь Добавлен");
+                NavigationService.GoBack();
 
             }
         }
-        //public bool CheckFields()
-        //{
-        //    if (string.IsNullOrEmpty(TextBoxName.Text) || string.IsNullOrEmpty(TypeBox.Text) || string.IsNullOrEmpty(RatingBox.Text) || string.IsNullOrEmpty(TextBoxAdress.Text) || string.IsNullOrEmpty(TextBoxAdress.Text) || string.IsNullOrEmpty(TextBoxSecond.Text) || string.IsNullOrEmpty(TextBoxFirst.Text) || string.IsNullOrEmpty(TextBoxThird.Text) || string.IsNullOrEmpty(TextBoxPhone.Text) || string.IsNullOrEmpty(TextBoxEmail.Text))
-        //    {
-        //        MessageBox.Show("Заполните все вышеуказанные поля!");
-        //        return false;
-        //    }
-        //    using (var database = new Entities())
-        //    {
-        //        var name = database.Partners
-        //            .AsNoTracking()
-        //            .FirstOrDefault(u => u.Name == TextBoxName.Text);
-        //        if (name != null)
-        //        {
-        //            MessageBox.Show("Такой партнёр уже существует");
-        //            return false;
-        //        }
-        //    }
-        //    if (int.Parse(RatingBox.Text) < 0 || RatingBox.Text.Contains(".") || RatingBox.Text.Contains(","))
-        //    {
-        //        MessageBox.Show("Рэйтинг обязан быты целым положительным числом");
-        //        return false;
-        //    } // выводим сообщение
-        //    return true;
-        //}
 
-        //private void TypeBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (TypeBox.SelectedItem == null) 
-        //    {
-        //        MessageBox.Show("Select item");
-        //    }
-        //    else
-        //    {
-        //        _currentPartners.Type = TypeBox.SelectedIndex + 1;
-        //    }
-        //}
+        private void ButtonRedact_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder errors = new StringBuilder();
+
+            if (string.IsNullOrWhiteSpace(_currentPartners.Name))
+                errors.AppendLine("Укажите Название компании!");
+            if (string.IsNullOrWhiteSpace(Convert.ToString(_currentPartners.Rating)))
+                errors.AppendLine("Укажите Рэйтинг!");
+            if ((_currentPartners.Type == 0) || (TypeBox.Text == ""))
+                errors.AppendLine("Выберите тип компании!");
+            else
+                _currentPartners.Type = TypeBox.SelectedIndex + 1;
+            if (string.IsNullOrWhiteSpace(_currentPartners.Director_name))
+                errors.AppendLine("Укажите Фамилию!");
+            if (string.IsNullOrWhiteSpace(_currentPartners.Director_middle_name))
+                errors.AppendLine("Укажите Имя!");
+            if (string.IsNullOrWhiteSpace(_currentPartners.Director_last_name))
+                errors.AppendLine("Укажите Отчество!");
+            if (string.IsNullOrWhiteSpace(_currentPartners.Adress))
+                errors.AppendLine("Укажите Адрес!");
+            if (string.IsNullOrWhiteSpace(_currentPartners.Phone))
+                errors.AppendLine("Укажите Контактный телефон!");
+            if (string.IsNullOrWhiteSpace(_currentPartners.Email))
+                errors.AppendLine("Укажите адрес электронной почты!");
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+            //Изменяем объект Partners
+            try
+            {
+                Entities.GetContext().SaveChanges();
+                MessageBox.Show("Данные успешно сохранены!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            NavigationService.GoBack();
+
+
+        }
+       
     }
 }
